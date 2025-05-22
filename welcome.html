@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>환영합니다</title>
+  </head>
+  <body>
+    <h2 id="welcome-text"></h2>
+    <h3>To Do List</h3>
+    <div class="container">
+      <input id="inputField" type="text" />
+      <!--text 입력창(할일 입력창) 만들기-->
+      <button id="addToDo">+</button>
+      <!-- + 버튼 만들기 -->
+      <div class="to-dos" id="toDoList"></div>
+      <!-- id = inputField에 할일이 입력되고 + 버튼이 눌리면 할일이 나타날 공간 만들기-->
+    </div>
+
+    <script>
+      const userId = localStorage.getItem('loggedInUser');
+      if (userId) {
+        document.getElementById(
+          'welcome-text'
+        ).innerText = `${userId}님 환영합니다.`;
+      } else {
+        alert('로그인이 필요합니다.');
+        window.location.href = 'signup.html';
+      }
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
